@@ -93,6 +93,7 @@ card.querySelector(".delete").addEventListener("click", () => {
         setTimeout(() => {
             card.remove()
             deleteLocalTask(task.id);
+            renderTasks()
         }, 500); // Esperar a que termine la animación
     });
     to_do.appendChild(card);
