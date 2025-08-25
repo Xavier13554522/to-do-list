@@ -12,7 +12,7 @@ body{
 header{
     background: transparent;
     position: relative;
-    height: 100%;
+    height: 90%;
 }
 .container{
     background: #fff;
@@ -82,63 +82,9 @@ transition: all 0.3s;
 .animated_out{
     animation: bounceOut 0.5s ease-in-out forwards;
 }
-@keyframes bounceIn {
-  from,
-  20%,
-  40%,
-  60%,
-  80%,
-  to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-
-  0% {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-
-  20% {
-    transform: scale3d(1.1, 1.1, 1.1);
-  }
-
-  40% {
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-
-  60% {
-    opacity: 1;
-    transform: scale3d(1.03, 1.03, 1.03);
-  }
-
-  80% {
-    transform: scale3d(0.97, 0.97, 0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale3d(1, 1, 1);
-  }
-}
-@keyframes bounceOut {
-  0% {
-    transform: scale(1); /* Starts at original size */
-    opacity: 1; /* Fully visible */
-  }
-  25% {
-    transform: scale(0.95); /* Shrinks slightly */
-  }
-  50% {
-    opacity: 1; /* Remains visible during the slight shrink */
-    transform: scale(1.1); /* Expands slightly, creating the "bounce" */
-  }
-  100% {
-    opacity: 0; /* Fades out completely */
-    transform: scale(0.3); /* Shrinks significantly */
-  }
-}
 p{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    word-break: break-all;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  word-break: break-all;
 }
 .date{
     display: flex;
@@ -158,9 +104,87 @@ span{
     gap: 10px;
 }
 .input_pagination{
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
 }
+.error{
+animation: shake 0.5s ease-in-out  forwards;
+border: 1px solid red;
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+}
+a{
+  transition: all 0.3s;
+}
+a:hover{
+  transform: scale(1.2);
+}
+  @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+  
+    20% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+  
+    40% {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+  
+    60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+  
+    80% {
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+  
+    to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes bounceOut {
+    0% {
+      transform: scale(1); /* Starts at original size */
+      opacity: 1; /* Fully visible */
+    }
+    25% {
+      transform: scale(0.95); /* Shrinks slightly */
+    }
+    50% {
+      opacity: 1; /* Remains visible during the slight shrink */
+      transform: scale(1.1); /* Expands slightly, creating the "bounce" */
+    }
+    100% {
+      opacity: 0; /* Fades out completely */
+      transform: scale(0.3); /* Shrinks significantly */
+    }
+  }
+  @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+      }

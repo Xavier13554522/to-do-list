@@ -40,20 +40,26 @@ back.addEventListener("click", () => {
 
 add.addEventListener("click",addTask);
 add.addEventListener("click",()=>{
-    const card = document.querySelector(".card:last-child");
+    const card = document.querySelector(".card:first-child");
     card.classList.add("animated");
 })
 text.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         addTask();
-        const card = document.querySelector(".card:last-child");
+        const card = document.querySelector(".card:first-child");
     card.classList.add("animated");
     }
 });
 function addTask() {
 const textValue = text.value.trim(); 
 
-if(textValue === "") return;
+if(textValue === "") {
+    text.classList.add("error");
+    setTimeout(() => {
+        text.classList.remove("error");
+    }, 500); // Duración de la animación
+    return;
+}
 
     const task = {
         id: Date.now(),
@@ -70,19 +76,20 @@ console.log(new Date().toLocaleTimeString());
 
 function createTask(task) {
     const card = document.createElement("div");
+    const p = document.createElement("p");
+    p.textContent = task.text;
     card.classList.add("card");
     card.innerHTML = `
-        <p>${task.text}</p>
-        <div class="date">        
-        <span>${new Date().toLocaleDateString()}
-        </span>
-        <span>
-        ${new Date().toLocaleTimeString()}
-        </span>
-        </div>
-        <button class="delete submit">❌</button>
-        
+    <div class="date">     
+    <span>${new Date().toLocaleDateString()}
+    </span>
+    <span>
+    ${new Date().toLocaleTimeString()}
+    </span>
+    </div>
+    <button class="delete submit">❌</button>
     `;
+    card.prepend(p);
     renderRemove(task, card);
 }
 
